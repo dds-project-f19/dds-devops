@@ -1,0 +1,14 @@
+version: "0.0"
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ddspassword14882
+      MYSQL_DATABASE: ddstest
+
+  back:
+    image: backend:v1
+    expose:
+      - "9000"
