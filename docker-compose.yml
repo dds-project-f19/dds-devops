@@ -1,4 +1,4 @@
-version: "0.0"
+version: "3"
 services:
   db:
     image: mysql
@@ -7,8 +7,15 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ddspassword14882
       MYSQL_DATABASE: ddstest
+    ports:
+      - "3306:3306"
 
   back:
-    image: backend:v1
-    expose:
-      - "9000"
+    image: back:2
+    restart: always
+    deploy:
+      replicas: 1
+    depends_on:
+      - "db"
+    ports:
+      - "80:9000"
