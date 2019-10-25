@@ -1,15 +1,40 @@
-FROM centos:latest
-#RUN apk update && apk --no-cache add curl
-RUN yum -y update && yum -y install wget
+# Dockerfile for backend of project
 
-ADD . /back
+FROM golang:latest as builder
 
-WORKDIR /back
+# Dependencies
+RUN go get -u github.com/go-sql-driver/mysql
+RUN go get -u github.com/gin-gonic/gin
+RUN go get -u github.com/jinzhu/gorm
+RUN go get -u github.com/gin-contrib/cors
 
-#RUN curl -s https://api.github.com/repos/dds-project-f19/dds-backend/releases/latest | grep "browser_download_url.*" | cut -d '"' -f 4 | grep -E "*x64_linux*|*.yaml" | wget -qi -
-RUN chmod +x /back/server_x64_linux
-#RUN echo "dbaddress: db" > config.yaml
+#WORKDIR $GOPATH/src/dds-backend
+WORKDIR $GOPATH/src
+
+RUN git clone https://github.com/dds-project-f19/dds-backend.git
+
+# Build project
+#RUN go build -a -o /app .
+RUN go install dds-backend
+
+# place executable and configs in confident location
+WORKDIR /serv
+RUN mv $GOPATH/bin/dds-backend . && \
+    cp $GOPATH/src/dds-backend/config.yaml .
+
+# Make result executable
+# TODO: RUN chmod +x /app
+
+######## Start a new stage from scratch ###########
+FROM centos:latest 
+
+WORKDIR /root/
+
+COPY --from=builder /serv/* ./
+RUN chmod +x dds-backend
+#RUN sed -i '1idbaddress: db' config.yaml
+
+# Inference
 EXPOSE 9000
-
-ENTRYPOINT /back/server_x64_linux
-
+#CMD ["./dds-backend"]
+ENTRYPOINT /root/dds-backend
