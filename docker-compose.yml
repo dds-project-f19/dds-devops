@@ -12,6 +12,13 @@ services:
     volumes:
       - ./data:/var/lib/mysql
 
+  front:
+    image: front:latest
+    restart: always
+    deploy:
+      replicas: 1
+    ports:
+      - "80:8080"
 
 #  back:
 #    image: back:latest
