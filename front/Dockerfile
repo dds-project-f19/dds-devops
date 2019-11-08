@@ -12,6 +12,10 @@ RUN npm install
 
 # RUN mv dds-frontend/* .
 
-CMD npm run prod
+RUN npm run build:prod
 
 EXPOSE 8080
+
+CMD npm run prod
+
+# EXPOSE 8080
