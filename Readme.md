@@ -1,5 +1,7 @@
 Actual [architecture](https://drive.google.com/file/d/15fMMwrnjRqEWKmM2lyuCKiQUysKWQnqe/view?usp=sharing)
 
+
+
 # How to run:
 
 ```bash
@@ -14,6 +16,12 @@ Actual [architecture](https://drive.google.com/file/d/15fMMwrnjRqEWKmM2lyuCKiQUy
 	docker build -t front:1 front/
 
 	docker run -p 8080:8080 front:1
+```
+
+and sometime:
+
+```bash
+docker build --no-cache -t back:latest back/
 ```
 
 ## Used tutorials:
