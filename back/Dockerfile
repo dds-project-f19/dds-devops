@@ -14,7 +14,7 @@ WORKDIR $GOPATH/src
 
 #RUN git clone --single-branch --branch develop https://github.com/dds-project-f19/dds-backend.git
 #RUN git clone --single-branch --branch master --recurse-submodules https://github.com/dds-project-f19/dds-backend.git
-RUN git clone --single-branch --branch master https://github.com/dds-project-f19/dds-backend.git
+RUN git clone --single-branch --branch develop https://github.com/dds-project-f19/dds-backend.git
 
 # Build project
 RUN go install dds-backend
