@@ -4,24 +4,30 @@ Actual [architecture](https://drive.google.com/file/d/15fMMwrnjRqEWKmM2lyuCKiQUy
 
 # How to run:
 
-```bash
-	# Backend
-	docker build -t back:2 back/
-
-	docker-compose up
-```
+build:
 
 ``` bash
 	# Frontend
-	docker build -t front:1 front/
-
-	docker run -p 8080:8080 front:1
+	docker build -t front:latest front/
 ```
 
-and sometime:
 
 ```bash
-docker build --no-cache -t back:latest back/
+	# Backend
+	docker build -t back:latest back/
+```
+
+
+
+run:
+
+```bash
+# Database
+docker-compose -d up
+
+# Back + front
+docker run -p "9000:9000" -p "80:8080" -it -d -e DDS_TELEGRAM_BOT_APIKEY='[actual key]' --network host bk:latest
+
 ```
 
 ## Used tutorials:
