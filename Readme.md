@@ -8,7 +8,7 @@ build:
 
 ``` bash
 	# Frontend
-	docker build -t front:latest front/
+	docker build -t front:latest front/ --build-arg back_url=back
 ```
 
 
@@ -17,6 +17,10 @@ build:
 	docker build -t back:latest back/
 ```
 
+``` bash
+	# Full stack
+	docker build -t dds-server:latest . 
+```
 
 
 run:
@@ -26,7 +30,7 @@ run:
 docker-compose -d up
 
 # Back + front
-docker run -p "9000:9000" -p "80:8080" -it -d -e DDS_TELEGRAM_BOT_APIKEY='[actual key]' --network host bk:latest
+docker run -p "9000:9000" -p "80:8080" -it -d -e DDS_TELEGRAM_BOT_APIKEY='[actual key]' --network host dds-server:latest
 
 ```
 

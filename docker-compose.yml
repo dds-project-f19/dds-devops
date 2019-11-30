@@ -12,6 +12,16 @@ services:
     volumes:
       - ./data:/var/lib/mysql
 
+  stack:
+    image: dds-server:latest
+    ports:
+      - "9000:9000"
+      - "80:8080"
+    environment:
+      DDS_TELEGRAM_BOT_APIKEY: 892064233:AAFUMkOMYISsfREKniKQqBEU-KWBpXebPZE
+    depends_on:
+      - "db"
+
 #  front:
 #    image: front:latest
 #    restart: always
