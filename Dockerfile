@@ -25,6 +25,6 @@ COPY --from=front /app/build ./front/build/
 # Inference
 EXPOSE 9000
 EXPOSE 8080
-CMD ["/root/dds-backend", "-dbaddress", "db"]
-# CMD ["/root/dds-backend"]
+# CMD ["/root/dds-backend", "-dbaddress", "db"]
+CMD ["/root/dds-backend"]
 # ENTRYPOINT /root/dds-backend
