@@ -26,11 +26,13 @@ build:
 run:
 
 ```bash
-# Database
+# Full stack
+export TG_KEY=\'[key]\'
+
 docker-compose -d up
 
 # Back + front
-docker run -p "9000:9000" -p "80:8080" -it -d -e DDS_TELEGRAM_BOT_APIKEY='[actual key]' --network host dds-server:latest
+# docker run -p "9000:9000" -p "80:8080" -it -d -e DDS_TELEGRAM_BOT_APIKEY='[actual key]' --network host dds-server:latest
 
 ```
 
