@@ -7,29 +7,18 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: ddspassword14882
       MYSQL_DATABASE: ddstest
-    ports:
-      - "3306:3306"
+#    ports:
+#      - "3306:3306"
     volumes:
       - ./data:/var/lib/mysql
 
-#  front:
-#    image: front:latest
-#    restart: always
-#    deploy:
-#      replicas: 1
-#    ports:
-#      - "80:8080"
-
-#  back:
-#    image: back:latest
-#    restart: always
-#    deploy:
-#      replicas: 1
-#    depends_on:
-#      - "db"
-#    ports:
-#      - "80:9000"
-#      - "9000:9000"
-#    network_mode: host
-#    networks:
-#      - host
+  stack:
+    image: dds-server:latest
+    restart: always
+    ports:
+      - "9000:9000"
+      - "80:8080"
+    environment:
+      - DDS_TELEGRAM_BOT_APIKEY:${TG_KEY}
+    depends_on:
+      - "db"

@@ -1,21 +1,11 @@
-FROM node:7
+FROM node:10-jessie as front
+
+ARG back_url=localhost:9000
+ENV placeholder="this.proxy=\"$back_url\""
 
 WORKDIR /app
-
-#RUN wget https://github.com/dds-project-f19/dds-frontend/blob/master/package.json
-#RUN wget https://raw.githubusercontent.com/dds-project-f19/dds-frontend/master/package.json
 RUN git clone https://github.com/dds-project-f19/dds-frontend.git .
+RUN npm install -g json && json -I -f package.json -e $placeholder
 RUN npm install
-#RUN rm package.json
-#COPY . /app
-#RUN git clone https://github.com/dds-project-f19/dds-frontend.git
-
-# RUN mv dds-frontend/* .
-
-RUN npm run build:prod
-
+RUN npm run build
 EXPOSE 8080
-
-CMD npm run prod
-
-# EXPOSE 8080
