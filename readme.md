@@ -12,7 +12,7 @@ Make sure you [created usergroup](https://docs.docker.com/install/linux/linux-po
 fast deploy:
 ```bash
 
-	export TG_KEY=\'[your api key from @botfather]\'
+	export TG_KEY=[your api key from @botfather]
 	. deploy.sh
 ```
 
