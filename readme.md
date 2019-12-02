@@ -18,7 +18,7 @@ Example of environment setting described in ```env.sh``` file.
 fast deploy:
 ```bash
 
-	export TG_KEY=\'[your api key from @botfather]\'
+	export TG_KEY=[your api key from @botfather]
 	. deploy.sh
 ```
 

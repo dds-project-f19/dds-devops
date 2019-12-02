@@ -16,9 +16,8 @@ services:
     image: dds-server:latest
     restart: always
     ports:
-      - "9000:9000"
-      - "80:8080"
+      - "80:9000"
     environment:
-      - DDS_TELEGRAM_BOT_APIKEY:${TG_KEY}
+      - DDS_TELEGRAM_BOT_APIKEY=${TG_KEY}
     depends_on:
       - "db"
