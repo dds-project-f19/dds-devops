@@ -13,6 +13,8 @@ Example of environment setting described in ```env.sh``` file.
 
 *Telegram bot: * ask @BotFather to create new bot and use provided token in guide next!
 
+**Note:** in case you have troubles with *TG_KEY* forwarding, you can explicitly put it in *docker-compose.yaml* in *DDS_TELEGRAM_BOT_APIKEY* variable of *stack* service.
+
 ### How to run
 
 fast deploy:
@@ -43,7 +45,7 @@ run:
 # Full stack 
 
 # raw token expected. No brackets or quotes.
-export TG_KEY=[key]
+export TG_KEY=[your api key from @botfather]
 
 docker-compose up -d
 ```
