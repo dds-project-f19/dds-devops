@@ -11,7 +11,7 @@ Make sure you [created usergroup](https://docs.docker.com/install/linux/linux-po
 
 Example of environment setting described in ```env.sh``` file.
 
-*Telegram bot: * ask @BotFather to create new bot and use provided token in guide next!
+*Telegram bot:* ask @BotFather to create new bot and use provided token in guide next!
 
 **Note:** in case you have troubles with *TG_KEY* forwarding, you can explicitly put it in *docker-compose.yaml* in *DDS_TELEGRAM_BOT_APIKEY* variable of *stack* service.
 
