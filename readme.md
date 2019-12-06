@@ -1,7 +1,8 @@
 # Deployment of Gamefication service
 
-[Frontend](https://github.com/dds-project-f19/dds-frontend/blob/03ec001585d47d93844c787a8f505b8d0551023e/src/serviceWorker.ts)
-[Backend](https://github.com/dds-project-f19/dds-frontend/blob/03ec001585d47d93844c787a8f505b8d0551023e/src/serviceWorker.ts)
+[Frontend](https://github.com/dds-project-f19/dds-frontend)
+
+[Backend](https://github.com/dds-project-f19/dds-backend)
 
 ### Dependencies
 * Docker
