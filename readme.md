@@ -15,6 +15,16 @@ Example of environment setting described in ```env.sh``` file.
 
 **Note:** in case you have troubles with *TG_KEY* forwarding, you can explicitly put it in *docker-compose.yaml* in *DDS_TELEGRAM_BOT_APIKEY* variable of *stack* service.
 
+If you run it on **windows**, make sure your drive configurated to be mounted as [here](https://github.com/Cyb3rWard0g/HELK/issues/79).
+
+```
+	# Key env variable on windows
+	set TG_KEY=[your api key from @botfather]
+```
+Then repeating of commands from *deploy.sh* will lead you to correct deploy even on windows.
+
+If you run server in **Russia**, telegram connection can be rejected each 30 seconds and back will restart. 
+
 ### How to run
 
 fast deploy:
