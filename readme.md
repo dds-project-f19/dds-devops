@@ -50,7 +50,7 @@ export TG_KEY=[your api key from @botfather]
 docker-compose up -d
 ```
 
-Database state will be stored in $ ./data $ folder.
+Database state will be stored in *./data* folder.
 
 ## Used tutorials:
 
